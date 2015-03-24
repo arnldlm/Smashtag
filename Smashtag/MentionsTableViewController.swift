@@ -40,45 +40,73 @@ class MentionsTableViewController: UITableViewController {
         if !mentions!.media.isEmpty {
             numberOfSections++
         }
-        println("Number of sections=\(numberOfSections)")
         return numberOfSections
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        // need to adjust for if there's anything in each section
+        if section == 0 && !mentions!.media.isEmpty {
+            return 1
+        }
+        if section == 1 && !mentions!.urls.isEmpty {
+            return 1
+        }
+        if section == 2 && !mentions!.hashtags.isEmpty {
+            return 1
+        }
+        if section == 3 && !mentions!.userMentions.isEmpty {
+            return 1
+        }
+        return 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.imagesCellReuseIdentifier, forIndexPath: indexPath) as ImagesTableViewCell
-        cell.tweet = mentions
         
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
-            if mentions?.media != nil {
-                let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.imagesCellReuseIdentifier, forIndexPath: indexPath) as ImagesTableViewCell
-                cell.tweet = mentions
+            let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.imagesCellReuseIdentifier, forIndexPath: indexPath) as ImagesTableViewCell
+            
+            cell.tweet = mentions
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.urlsCellReuseIdentifier, forIndexPath: indexPath) as URLsTableViewCell
+            cell.tweet = mentions
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.hashtagsCellResuseIdentifier, forIndexPath: indexPath) as HashtagsTableViewCell
+            cell.tweet = mentions
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.usersCellReuseIdentifier, forIndexPath: indexPath) as UsersTableViewCell
+            cell.tweet = mentions
+            return cell
+        }
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            if !mentions!.media.isEmpty {
+                return "Images"
             }
         case 1:
-            if mentions?.urls.description != nil {
-                let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.urlsCellReuseIdentifier, forIndexPath: indexPath) as URLsTableViewCell
-                cell.tweet = mentions
+            if !mentions!.urls.isEmpty {
+                return "URLs"
             }
         case 2:
-            if mentions?.hashtags.description != nil {
-                let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.hashtagsCellResuseIdentifier, forIndexPath: indexPath) as HashtagsTableViewCell
-                cell.tweet = mentions
+            if !mentions!.hashtags.isEmpty {
+                return "Hashtags"
             }
         case 3:
-            if mentions?.userMentions.description != nil {
-                let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.usersCellReuseIdentifier, forIndexPath: indexPath) as UsersTableViewCell
-                cell.tweet = mentions
+            if !mentions!.userMentions.isEmpty {
+                return "User Mentions"
             }
-        default: break
+        default: return nil
         }
-        return cell
+        return nil
     }
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

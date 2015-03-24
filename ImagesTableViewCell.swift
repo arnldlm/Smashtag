@@ -19,6 +19,15 @@ class ImagesTableViewCell: UITableViewCell {
     }
     
     func updateUI() {
+        if let imageURL = tweet?.media.first?.url {
+            let imageData = NSData(contentsOfURL: imageURL)
+            if imageData != nil {
+                pictureImageView?.image = UIImage(data: imageData!)
+            }
+            else {
+                pictureImageView?.image = nil
+            }
+        }
         
     }
 

@@ -9,6 +9,8 @@
 import UIKit
 
 class UsersTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var userMentionsLabel: UILabel!
 
     var tweet: Tweet? {
         didSet {
@@ -17,7 +19,7 @@ class UsersTableViewCell: UITableViewCell {
     }
     
     func updateUI() {
-        
+        userMentionsLabel.text = tweet?.userMentions.description
     }
 
 }

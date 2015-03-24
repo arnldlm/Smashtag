@@ -19,6 +19,8 @@ class URLsTableViewCell: UITableViewCell {
     }
     
     func updateUI() {
+        urlLabel.text = tweet?.urls.description
+        
     }
     
 }

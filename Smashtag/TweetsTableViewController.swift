@@ -15,7 +15,7 @@ class TweetsTableViewController: UITableViewController, UITextFieldDelegate {
     var tweets = [[Tweet]]()
     var tweetToSend: Tweet?
     
-    var searchText: String? = "#Apple" {
+    var searchText: String? = "#ubc" {
         didSet {
             lastSuccessfulRequest = nil // resets past request
             searchTextField?.text = searchText
