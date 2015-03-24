@@ -130,7 +130,12 @@ class TweetsTableViewController: UITableViewController, UITextFieldDelegate {
         }
         if let mtvc = destination as? MentionsTableViewController {
             if let identifier = segue.identifier {
-                mtvc.mentions = tweetToSend
+                if identifier == "showMentions" {
+                    let cell = sender as TweetTableViewCell
+                    if let indexPath = tableView.indexPathForCell(cell) {
+                        mtvc.mentions = tweets[indexPath.section][indexPath.row]
+                    }
+                }
             }
         }
     }

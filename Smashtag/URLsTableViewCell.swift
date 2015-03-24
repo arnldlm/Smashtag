@@ -12,4 +12,13 @@ class URLsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var urlLabel: UILabel!
     
+    var tweet: Tweet? {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    func updateUI() {
+    }
+    
 }

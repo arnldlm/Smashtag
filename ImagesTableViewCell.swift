@@ -10,15 +10,16 @@ import UIKit
 
 class ImagesTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var pictureImageView: UIImageView!
+    
+    var tweet: Tweet? {
+        didSet {
+            updateUI()
+        }
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func updateUI() {
+        
     }
 
 }

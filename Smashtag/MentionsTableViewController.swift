@@ -12,36 +12,72 @@ class MentionsTableViewController: UITableViewController {
 
     var mentions: Tweet? // tweet
     
+    private struct Storyboard {
+        static let imagesCellReuseIdentifier = "imagesCell"
+        static let urlsCellReuseIdentifier = "urlsCell"
+        static let hashtagsCellResuseIdentifier = "hashtagsCell"
+        static let usersCellReuseIdentifier = "userMentionsCell"
+    }
+    
     override func viewDidLoad() {
-        println(mentions!.user.name)
         super.viewDidLoad()
     }
 
     // MARK: - UITableViewDataSource
-    
-    private struct Storyboard {
-        static let imagesCellReuseIdentifier = "imagesCell"
-        static let urlsCellReuseIdentifier = "urlCell"
-        static let hashtagsCellResuseIdentifier = "hashtagsCell"
-        static let usersCellReuseIdentifier = "usersCell"
-    }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 0
+        var numberOfSections: Int = 0
+        
+        if !mentions!.userMentions.isEmpty {
+            numberOfSections++
+        }
+        if !mentions!.hashtags.isEmpty {
+            numberOfSections++
+        }
+        if !mentions!.urls.isEmpty {
+            numberOfSections++
+        }
+        if !mentions!.media.isEmpty {
+            numberOfSections++
+        }
+        println("Number of sections=\(numberOfSections)")
+        return numberOfSections
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 1
     }
 
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as HashtagsTableViewCell
-//        cell.tweet = mentions
-//        
-//        // set all cells' public API equal to mentions
-//
-//        return cell
-//    }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.imagesCellReuseIdentifier, forIndexPath: indexPath) as ImagesTableViewCell
+        cell.tweet = mentions
+        
+        switch indexPath.row {
+        case 0:
+            if mentions?.media != nil {
+                let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.imagesCellReuseIdentifier, forIndexPath: indexPath) as ImagesTableViewCell
+                cell.tweet = mentions
+            }
+        case 1:
+            if mentions?.urls.description != nil {
+                let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.urlsCellReuseIdentifier, forIndexPath: indexPath) as URLsTableViewCell
+                cell.tweet = mentions
+            }
+        case 2:
+            if mentions?.hashtags.description != nil {
+                let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.hashtagsCellResuseIdentifier, forIndexPath: indexPath) as HashtagsTableViewCell
+                cell.tweet = mentions
+            }
+        case 3:
+            if mentions?.userMentions.description != nil {
+                let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.usersCellReuseIdentifier, forIndexPath: indexPath) as UsersTableViewCell
+                cell.tweet = mentions
+            }
+        default: break
+        }
+        return cell
+    }
 
     /*
     // Override to support conditional editing of the table view.

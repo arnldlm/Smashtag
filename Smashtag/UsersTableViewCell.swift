@@ -10,15 +10,14 @@ import UIKit
 
 class UsersTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var tweet: Tweet? {
+        didSet {
+            updateUI()
+        }
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func updateUI() {
+        
     }
 
 }
