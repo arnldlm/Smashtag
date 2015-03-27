@@ -115,8 +115,6 @@ class TweetsTableViewController: UITableViewController, UITextFieldDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as TweetTableViewCell
         
         cell.tweet = tweets[indexPath.section][indexPath.row] // sets TweetTableViewCell's public API
-        
-        tweetToSend = cell.tweet
 
         return cell
     }

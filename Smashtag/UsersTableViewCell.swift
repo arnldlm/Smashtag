@@ -19,6 +19,8 @@ class UsersTableViewCell: UITableViewCell {
     }
     
     func updateUI() {
+        println(tweet?.userMentions.description)
+        
         userMentionsLabel.text = tweet?.userMentions.description
     }
 

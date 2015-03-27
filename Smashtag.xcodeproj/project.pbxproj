@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0E8F1D1AC48A1300778B4B /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0E8F1C1AC48A1300778B4B /* EmptyTableViewCell.swift */; };
 		3B254BE61ABFC50C0087D5D2 /* MentionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B254BE51ABFC50C0087D5D2 /* MentionsTableViewController.swift */; };
 		3B254BEA1ABFC7910087D5D2 /* ImagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B254BE91ABFC7910087D5D2 /* ImagesTableViewCell.swift */; };
 		3B254BEC1ABFC8530087D5D2 /* URLsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B254BEB1ABFC8530087D5D2 /* URLsTableViewCell.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B0E8F1C1AC48A1300778B4B /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
 		3B254BE51ABFC50C0087D5D2 /* MentionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsTableViewController.swift; sourceTree = "<group>"; };
 		3B254BE91ABFC7910087D5D2 /* ImagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagesTableViewCell.swift; path = ../ImagesTableViewCell.swift; sourceTree = "<group>"; };
 		3B254BEB1ABFC8530087D5D2 /* URLsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLsTableViewCell.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				3B254BEB1ABFC8530087D5D2 /* URLsTableViewCell.swift */,
 				3B254BED1ABFC85F0087D5D2 /* HashtagsTableViewCell.swift */,
 				3B254BEF1ABFC8660087D5D2 /* UsersTableViewCell.swift */,
+				3B0E8F1C1AC48A1300778B4B /* EmptyTableViewCell.swift */,
 				3B57E7201ABE560300DBF0D1 /* Twitter */,
 				3B57E6FC1ABE550E00DBF0D1 /* Supporting Files */,
 			);
@@ -262,6 +265,7 @@
 				3B57E7251ABE560300DBF0D1 /* MediaItem.swift in Sources */,
 				3B57E7261ABE560300DBF0D1 /* Tweet.swift in Sources */,
 				3BF778831ABE757A004C5F3B /* TweetTableViewCell.swift in Sources */,
+				3B0E8F1D1AC48A1300778B4B /* EmptyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

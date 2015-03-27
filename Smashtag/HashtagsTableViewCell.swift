@@ -22,6 +22,8 @@ class HashtagsTableViewCell: UITableViewCell {
         var firstHashtag = tweet?.hashtags[0].description
         var hashtag = firstHashtag?.componentsSeparatedByString(" ")
         hashtagLabel.text = hashtag?[0]
+        
+        println(hashtag?[0])
     }
 
 }

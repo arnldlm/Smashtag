@@ -18,9 +18,15 @@ class URLsTableViewCell: UITableViewCell {
         }
     }
     
+    var randomString: String?
+    
     func updateUI() {
+        println(tweet?.urls.description)
         urlLabel.text = tweet?.urls.description
-        
+
+//        var URLwithNum = tweet?.urls[0].description
+//        var URL = URLwithNum?.componentsSeparatedByString(" ")
+//        urlLabel.text = URL?[0]
     }
     
 }
