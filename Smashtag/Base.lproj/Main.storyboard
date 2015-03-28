@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Rh5-5Y-kdS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3m7-jc-iPG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -200,10 +200,57 @@
             </objects>
             <point key="canvasLocation" x="3102" y="455"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="su6-UF-hdz">
+            <objects>
+                <tabBarController id="3m7-jc-iPG" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="qss-eg-yxw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Rh5-5Y-kdS" kind="relationship" relationship="viewControllers" id="aUD-NQ-WOo"/>
+                        <segue destination="ynN-aA-HE9" kind="relationship" relationship="viewControllers" id="XaT-hK-WA2"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xvo-ma-STI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-566" y="75"/>
+        </scene>
+        <!--Search History-->
+        <scene sceneID="mk6-ra-r71">
+            <objects>
+                <tableViewController id="aze-uT-tt0" customClass="SearchHistoryTableViewController" customModule="Smashtag" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TbI-Vc-PVX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="OM5-XU-HHj" customClass="SearchHistoryTableViewCell" customModule="Smashtag" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OM5-XU-HHj" id="UYa-yB-b6d">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aze-uT-tt0" id="KjB-Bh-3kG"/>
+                            <outlet property="delegate" destination="aze-uT-tt0" id="Pma-7S-cym"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Search History" id="UFI-5I-nZc"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fM5-Vg-2ud" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1389" y="-325"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="M9h-7N-qXN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rh5-5Y-kdS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="yat-nd-AqB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1ob-XC-jdV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -235,6 +282,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pEl-in-CTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2291" y="456"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xnc-4B-AT0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ynN-aA-HE9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="history" id="NaI-fT-RhT"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qRQ-L2-qwo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aze-uT-tt0" kind="relationship" relationship="rootViewController" id="4vB-2o-J8j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qP8-Eh-JcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="577" y="-325"/>
         </scene>
     </scenes>
 </document>

@@ -20,7 +20,9 @@ class HashtagsTableViewCell: UITableViewCell {
     }
     
     func updateUI() {
-        hashtagLabel.text = tweet?.hashtags.description
+        var HashtagWithNum = tweet?.hashtags.first?.description
+        var hashtag = HashtagWithNum!.componentsSeparatedByString(" ")
+        hashtagLabel.text = hashtag[0]
     }
 
 }

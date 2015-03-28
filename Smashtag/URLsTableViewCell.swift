@@ -21,14 +21,9 @@ class URLsTableViewCell: UITableViewCell {
     var randomString: String?
     
     func updateUI() {
-
-        urlLabel.text = tweet?.urls.description
-        
-//        var URLwithNum = tweet?.urls[0].description
-//        var URL = URLwithNum?.componentsSeparatedByString(" ")
-//        urlLabel.text = URL?[0]
-        
-//        println("\(tweet?.urls)")
+        var URLwithNum = tweet?.urls.first?.description
+        var URL = URLwithNum!.componentsSeparatedByString(" ")
+        urlLabel.text = URL[0]
     }
     
 }

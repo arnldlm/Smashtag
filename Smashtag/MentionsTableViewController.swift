@@ -9,6 +9,7 @@
 import UIKit
 
 class MentionsTableViewController: UITableViewController {
+class MentionsTableViewController: UITableViewController, UITableViewDelegate {
 
     var mentions: Tweet? {
         didSet {
@@ -29,6 +30,18 @@ class MentionsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            if !mentions!.media.isEmpty {
+                if let aspectRatio = mentions?.media.first?.aspectRatio {
+                    return (CGFloat(aspectRatio) * tableView.bounds.width)
+                }
+            }
+        }
+        
+        return UITableViewAutomaticDimension
     }
     
     func placeMentionItemsInStack() {

@@ -13,6 +13,8 @@
 		3B254BEC1ABFC8530087D5D2 /* URLsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B254BEB1ABFC8530087D5D2 /* URLsTableViewCell.swift */; };
 		3B254BEE1ABFC85F0087D5D2 /* HashtagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B254BED1ABFC85F0087D5D2 /* HashtagsTableViewCell.swift */; };
 		3B254BF01ABFC8660087D5D2 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B254BEF1ABFC8660087D5D2 /* UsersTableViewCell.swift */; };
+		3B2A5E2B1AC76AD600C346AF /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A5E2A1AC76AD600C346AF /* SearchHistoryTableViewCell.swift */; };
+		3B2A5E2D1AC76AF800C346AF /* SearchHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A5E2C1AC76AF800C346AF /* SearchHistoryTableViewController.swift */; };
 		3B57E6FF1ABE550E00DBF0D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57E6FE1ABE550E00DBF0D1 /* AppDelegate.swift */; };
 		3B57E7041ABE550E00DBF0D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B57E7021ABE550E00DBF0D1 /* Main.storyboard */; };
 		3B57E7061ABE550E00DBF0D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B57E7051ABE550E00DBF0D1 /* Images.xcassets */; };
@@ -43,6 +45,8 @@
 		3B254BEB1ABFC8530087D5D2 /* URLsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLsTableViewCell.swift; sourceTree = "<group>"; };
 		3B254BED1ABFC85F0087D5D2 /* HashtagsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashtagsTableViewCell.swift; sourceTree = "<group>"; };
 		3B254BEF1ABFC8660087D5D2 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
+		3B2A5E2A1AC76AD600C346AF /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		3B2A5E2C1AC76AF800C346AF /* SearchHistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewController.swift; sourceTree = "<group>"; };
 		3B57E6F91ABE550E00DBF0D1 /* Smashtag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smashtag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B57E6FD1ABE550E00DBF0D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B57E6FE1ABE550E00DBF0D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				3B254BED1ABFC85F0087D5D2 /* HashtagsTableViewCell.swift */,
 				3B254BEF1ABFC8660087D5D2 /* UsersTableViewCell.swift */,
 				3B0E8F1C1AC48A1300778B4B /* EmptyTableViewCell.swift */,
+				3B2A5E2C1AC76AF800C346AF /* SearchHistoryTableViewController.swift */,
+				3B2A5E2A1AC76AD600C346AF /* SearchHistoryTableViewCell.swift */,
 				3B57E7201ABE560300DBF0D1 /* Twitter */,
 				3B57E6FC1ABE550E00DBF0D1 /* Supporting Files */,
 			);
@@ -253,12 +259,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2A5E2D1AC76AF800C346AF /* SearchHistoryTableViewController.swift in Sources */,
 				3B254BE61ABFC50C0087D5D2 /* MentionsTableViewController.swift in Sources */,
 				3B57E6FF1ABE550E00DBF0D1 /* AppDelegate.swift in Sources */,
 				3B254BEE1ABFC85F0087D5D2 /* HashtagsTableViewCell.swift in Sources */,
 				3B57E7271ABE560300DBF0D1 /* TwitterRequest.swift in Sources */,
 				3B254BF01ABFC8660087D5D2 /* UsersTableViewCell.swift in Sources */,
 				3B254BEA1ABFC7910087D5D2 /* ImagesTableViewCell.swift in Sources */,
+				3B2A5E2B1AC76AD600C346AF /* SearchHistoryTableViewCell.swift in Sources */,
 				3B57E7281ABE560300DBF0D1 /* User.swift in Sources */,
 				3B254BEC1ABFC8530087D5D2 /* URLsTableViewCell.swift in Sources */,
 				3B57E71F1ABE555400DBF0D1 /* TweetsTableViewController.swift in Sources */,
