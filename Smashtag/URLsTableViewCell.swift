@@ -10,23 +10,25 @@ import UIKit
 
 class URLsTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var urlLabel: UILabel!
-    
     var tweet: Tweet? {
         didSet {
             updateUI()
         }
     }
     
+    @IBOutlet weak var urlLabel: UILabel!
+    
     var randomString: String?
     
     func updateUI() {
-        println(tweet?.urls.description)
-        urlLabel.text = tweet?.urls.description
 
+        urlLabel.text = tweet?.urls.description
+        
 //        var URLwithNum = tweet?.urls[0].description
 //        var URL = URLwithNum?.componentsSeparatedByString(" ")
 //        urlLabel.text = URL?[0]
+        
+//        println("\(tweet?.urls)")
     }
     
 }

@@ -20,15 +20,20 @@ class ImagesTableViewCell: UITableViewCell {
     
     func updateUI() {
         if let imageURL = tweet?.media.first?.url {
+            let qualityOfService = Int(QOS_CLASS_USER_INITIATED.value)
+            dispatch_async(dispatch_get_global_queue(qualityOfService, 0)) { () -> Void in // splits to new thread
             let imageData = NSData(contentsOfURL: imageURL)
-            if imageData != nil {
-                pictureImageView?.image = UIImage(data: imageData!)
+                dispatch_async(dispatch_get_main_queue()) { // gets back on main thread to do UI stuff
+                    if imageData != nil {
+                        self.pictureImageView?.image = UIImage(data: imageData!)
+                    }
+                    else {
+                        self.pictureImageView?.image = nil
+                    }
+                }
             }
-            else {
-                pictureImageView?.image = nil
-            }
-        }
         
-    }
+        }
 
+    }
 }

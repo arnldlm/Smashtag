@@ -10,9 +10,14 @@ import UIKit
 
 class MentionsTableViewController: UITableViewController {
 
-    var mentions: Tweet? // tweet tapped
+    var mentions: Tweet? {
+        didSet {
+            placeMentionItemsInStack()
+        }
+    }
     
     var MentionItemsStack = [String?]()
+    var MentionItemsStackCopy = [String?]()
     
     private struct Storyboard {
         static let imagesCellReuseIdentifier = "imagesCell"
@@ -20,10 +25,6 @@ class MentionsTableViewController: UITableViewController {
         static let hashtagsCellResuseIdentifier = "hashtagsCell"
         static let usersCellReuseIdentifier = "userMentionsCell"
         static let emptyCellReuseIdentifier = "emptyCell"
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        placeMentionItemsInStack()
     }
     
     override func viewDidLoad() {
@@ -43,6 +44,7 @@ class MentionsTableViewController: UITableViewController {
         if !mentions!.media.isEmpty {
             MentionItemsStack.append("Images")
         }
+        tableView.reloadData()
     }
 
     // MARK: - UITableViewDataSource
@@ -57,8 +59,6 @@ class MentionsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let emptyCell = tableView.dequeueReusableCellWithIdentifier(Storyboard.emptyCellReuseIdentifier, forIndexPath: indexPath) as EmptyTableViewCell
-        
         if !MentionItemsStack.isEmpty {
             if let identifier = MentionItemsStack.removeLast() {
                 switch identifier {
@@ -73,6 +73,7 @@ class MentionsTableViewController: UITableViewController {
                     case "URLs":
                         let urlCell = tableView.dequeueReusableCellWithIdentifier(Storyboard.urlsCellReuseIdentifier, forIndexPath: indexPath) as URLsTableViewCell
                         urlCell.tweet = mentions
+                        println("returned URL")
                         return urlCell
                     case "Images":
                         let imageCell = tableView.dequeueReusableCellWithIdentifier(Storyboard.imagesCellReuseIdentifier, forIndexPath: indexPath) as ImagesTableViewCell
@@ -82,13 +83,19 @@ class MentionsTableViewController: UITableViewController {
                 }
             }
         }
+        
+        placeMentionItemsInStack()
+        
+        let emptyCell = tableView.dequeueReusableCellWithIdentifier(Storyboard.emptyCellReuseIdentifier, forIndexPath: indexPath) as EmptyTableViewCell
+
+        println("Printed empty cell at section:" + "\(indexPath.section)")
         return emptyCell // arbitrary return statement
     }
-        
-//    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        }
-//    }
     
+//    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return nil
+//    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

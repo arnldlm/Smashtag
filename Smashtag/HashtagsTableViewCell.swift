@@ -11,6 +11,7 @@ import UIKit
 class HashtagsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var hashtagLabel: UILabel!
+    var stringToPrint: String? = ""
     
     var tweet: Tweet? {
         didSet {
@@ -19,11 +20,7 @@ class HashtagsTableViewCell: UITableViewCell {
     }
     
     func updateUI() {
-        var firstHashtag = tweet?.hashtags[0].description
-        var hashtag = firstHashtag?.componentsSeparatedByString(" ")
-        hashtagLabel.text = hashtag?[0]
-        
-        println(hashtag?[0])
+        hashtagLabel.text = tweet?.hashtags.description
     }
 
 }
