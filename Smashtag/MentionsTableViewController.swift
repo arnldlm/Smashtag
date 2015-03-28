@@ -8,7 +8,6 @@
 
 import UIKit
 
-class MentionsTableViewController: UITableViewController {
 class MentionsTableViewController: UITableViewController, UITableViewDelegate {
 
     var mentions: Tweet? {
